@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="flex flex-col justify-center text-center mx-auto">
       <h1>BorrowIt Project 🚀</h1>
-      <div className="card bg-red-500">
+      <div className="card px-5 mt-5">
         <p>Status Koneksi Backend:</p>
         <code style={{ color: status.includes('Sukses') ? 'lightgreen' : 'orange' }}>
           {status}

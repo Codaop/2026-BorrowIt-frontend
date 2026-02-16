@@ -16,5 +16,5 @@ export interface RuanganUpdate {
     namaRuangan: string | null;
     kapasitas: number | null;
     jenisRuangan: string | null;
-    isTersedia: string | null;
+    isTersedia?: boolean;
 }

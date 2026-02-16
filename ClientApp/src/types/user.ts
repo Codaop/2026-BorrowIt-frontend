@@ -25,8 +25,3 @@ export interface UserChangePassword {
   currentPassword: string;
   newPassword: string;
 }
-
-export interface UserLoginDto {
-  username: string;
-  password: string;
-}

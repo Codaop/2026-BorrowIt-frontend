@@ -1,29 +1,36 @@
-import { useEffect, useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ProtectedRoute from './components/ProtectedRoute'
+import Sidebar from './components/Sidebar'
+import LandingPage from './pages/LandingPage'
+import LoginPage from './pages/LoginPage'
+import UserListPage from './pages/UserListPage'
+import RuanganManagePage from './pages/RuanganManagePage'
+import RiwayatAdminPage from './pages/RiwayatPinjamAdmin'
+import RiwayatGuestPage from './pages/RiwayatPinjamGuest'
 
 function App() {
-  const [status, setStatus] = useState("Sedang mencoba menghubungi Backend...")
-
-  useEffect(() => {
-    fetch('/api/RiwayatPinjams') 
-      .then(res => {
-        if (!res.ok) throw new Error(`Error: ${res.status}`)
-        return res.json()
-      })
-      .then(data => setStatus("Koneksi Sukses! " + JSON.stringify(data)))
-      .catch(err => setStatus("Koneksi Gagal: " + err.message))
-  }, [])
-
   return (
-    <div className="flex flex-col justify-center text-center mx-auto">
-      <h1>BorrowIt Project 🚀</h1>
-      <div className="card px-5 mt-5">
-        <p>Status Koneksi Backend:</p>
-        <code style={{ color: status.includes('Sukses') ? 'lightgreen' : 'orange' }}>
-          {status}
-        </code>
-      </div>
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/peminjaman" element={<RiwayatGuestPage />} />
+
+        <Route path="/dashboard/*" element={
+          <ProtectedRoute>
+            <div className="flex bg-white min-h-screen min-w-screen">
+              <Sidebar />
+              <Routes>
+                <Route path="users" element={<UserListPage />} />
+                <Route path="ruangan" element={<RuanganManagePage />} />
+                <Route path="riwayat" element={<RiwayatAdminPage />} />
+              </Routes>
+            </div>
+          </ProtectedRoute>
+        } />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App

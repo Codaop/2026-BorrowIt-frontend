@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import ProtectedRoute from './components/ProtectedRoute'
 import Sidebar from './components/Sidebar'
 import LandingPage from './pages/LandingPage'
@@ -29,6 +30,7 @@ function App() {
           </ProtectedRoute>
         } />
       </Routes>
+      <Analytics />
     </BrowserRouter>
   );
 }

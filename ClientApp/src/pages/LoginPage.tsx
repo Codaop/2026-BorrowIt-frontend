@@ -74,7 +74,7 @@ export default function LoginPage() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full py-4 bg-slate-900 text-white font-black hover:text-blue-600 rounded-2xl shadow-lg hover:bg-blue-600 disabled:bg-slate-300 transition-all active:scale-95 uppercase tracking-widest text-sm"
+                            className="w-full py-4 bg-slate-900 text-white font-black hover:text-blue-500 rounded-2xl shadow-lg disabled:bg-slate-300 transition-all active:scale-95 uppercase tracking-widest text-sm"
                         >
                             {loading ? "Mencoba Masuk..." : "Masuk Sekarang"}
                         </button>
@@ -83,7 +83,7 @@ export default function LoginPage() {
                     <div className="mt-8 text-center">
                         <button
                             onClick={() => navigate("/")}
-                            className="text-sm font-bold text-white hover:text-blue-600"
+                            className="text-sm font-bold bg-blue-600 text-white hover:text-white hover:bg-blue-500"
                         >
                             ← Kembali ke Beranda
                         </button>

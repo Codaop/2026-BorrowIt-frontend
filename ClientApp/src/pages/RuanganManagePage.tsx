@@ -58,7 +58,7 @@ export default function RuanganManagePage() {
         <div className="p-10 w-full min-h-screen">
             <div className="flex justify-between items-center mb-10">
                 <h1 className="text-3xl font-black text-black">Kelola Ruangan</h1>
-                <button onClick={() => setShowAdd(true)} className="bg-emerald-600 text-white hover:text-blue-600 px-6 py-3 rounded-xl font-bold hover:bg-emerald-500 shadow-lg shadow-emerald-900/20">
+                <button onClick={() => setShowAdd(true)} className="bg-blue-600 text-white hover:text-white hover:bg-blue-500 px-6 py-3 rounded-xl font-bold  shadow-lg shadow-emerald-900/20">
                     + Ruangan Baru
                 </button>
             </div>
@@ -74,8 +74,8 @@ export default function RuanganManagePage() {
                             </div>
                         </div>
                         <div className="flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <button onClick={() => { setEditData({ ...r, id: r.id }); setShowEdit(true); }} className="p-3 bg-slate-800 hover:bg-blue-600 text-white hover:text-blue-600 rounded-xl transition-all">Edit</button>
-                            <button onClick={() => { setSelectedId(r.id); setShowDelete(true); }} className="p-3 bg-slate-800 hover:bg-rose-600 text-white hover:text-rose-600 rounded-xl transition-all">Hapus</button>
+                            <button onClick={() => { setEditData({ ...r, id: r.id }); setShowEdit(true); }} className="p-3 bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white rounded-xl transition-all">Edit</button>
+                            <button onClick={() => { setSelectedId(r.id); setShowDelete(true); }} className="p-3 bg-red-50 hover:bg-rose-600 text-rose-600 hover:text-white rounded-xl transition-all">Hapus</button>
                         </div>
                     </div>
                 ))}

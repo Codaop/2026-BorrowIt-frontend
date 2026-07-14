@@ -98,7 +98,7 @@ export default function UserListPage() {
                 <h1 className="text-3xl font-black text-black">Daftar Users</h1>
                 <button
                     onClick={() => setShowAdd(true)}
-                    className="bg-blue-600 text-white hover:text-blue-600 px-6 py-3 rounded-xl font-bold hover:bg-blue-500 shadow-lg shadow-blue-900/20"
+                    className="bg-blue-600 text-white hover:text-white hover:bg-blue-500 px-6 py-3 rounded-xl font-bold  shadow-lg shadow-blue-900/20"
                 >
                     + Tambah User
                 </button>
@@ -127,19 +127,19 @@ export default function UserListPage() {
                                 <td className="px-8 py-6 text-right space-x-3">
                                     <button
                                         onClick={() => { setEditData({ ...u, id: u.id } as any); setShowEdit(true); }}
-                                        className="text-white hover:text-blue-600 font-bold text-sm"
+                                        className="bg-blue-50 hover:text-white text-blue-600 hover:bg-blue-700 font-bold text-sm"
                                     >
                                         Edit
                                     </button>
                                     <button
                                         onClick={() => { setSelectedId(u.id); setShowDelete(true); }}
-                                        className="text-white hover:text-rose-600 font-bold text-sm"
+                                        className="bg-rose-50 text-rose-500 hover:text-white hover:bg-rose-500 font-bold text-sm"
                                     >
                                         Hapus
                                     </button>
                                     <button
                                         onClick={() => { setPassData({ id: u.id, currentPassword: "", newPassword: "" } as any); setShowChangePass(true); }}
-                                        className="text-white hover:text-yellow-400 font-bold text-sm"
+                                        className="bg-yellow-50 text-yellow-600 hover:text-white hover:bg-yellow-400 font-bold text-sm"
                                     >
                                         Change Password
                                     </button>

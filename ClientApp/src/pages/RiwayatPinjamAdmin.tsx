@@ -151,7 +151,7 @@ export default function RiwayatPage() {
           </div>
           <button
             onClick={() => setShowAdd(true)}
-            className="bg-blue-600 text-white hover:text-blue-600 px-6 py-3 rounded-2xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all">+ Ajukan Peminjaman</button>
+            className="bg-blue-600 text-white hover:text-white hover:bg-blue-500 px-6 py-3 rounded-2xl font-bold shadow-lg shadow-blue-200  transition-all">+ Ajukan Peminjaman</button>
         </div>
 
         <div className="bg-white rounded-[2.5rem] shadow-sm border border-slate-100 overflow-hidden">
@@ -198,22 +198,22 @@ export default function RiwayatPage() {
                     <td className="px-6 py-6 text-sm text-slate-400">
                       {r.whenStatusChanged || "-"}
                     </td>
-                    <td className="px-6 py-6 text-right space-x-2">
+                    <td className="flex flex-col gap-2 px-6 py-6 text-right space-x-2">
                       <button
                         onClick={() => { setEditData({ ...r, id: r.id }); setShowEdit(true); }}
-                        className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors text-sm font-bold"
+                        className="p-2 bg-blue-50 hover:text-white text-blue-600 hover:bg-blue-700 rounded-lg transition-colors text-sm font-bold"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => { setSelectedId(r.id); setShowDelete(true); }}
-                        className="p-2 text-rose-600 hover:bg-rose-50 rounded-lg transition-colors text-sm font-bold"
+                        className="p-2 bg-rose-50 text-rose-500 hover:text-white hover:bg-rose-500 rounded-lg transition-colors text-sm font-bold"
                       >
                         Hapus
                       </button>
                       <button
                         onClick={() => { setSelectedId(r.id); setShowUpdateStatus(true); }}
-                        className="p-2 text-yellow-400 hover:bg-yellow-50 rounded-lg transition-colors text-sm font-bold"
+                        className="p-2 bg-yellow-50 text-yellow-600 hover:text-white hover:bg-yellow-400 rounded-lg transition-colors text-sm font-bold"
                       >
                         Update
                       </button>

@@ -129,7 +129,7 @@ export default function RiwayatPage() {
           </div>
           <button
             onClick={() => setShowAdd(true)}
-            className="bg-blue-600 text-white hover:text-blue-600 px-6 py-3 rounded-2xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all">+ Ajukan Peminjaman</button>
+            className="bg-blue-600 text-white hover:text-white hover:bg-blue-500 px-6 py-3 rounded-2xl font-bold shadow-lg shadow-blue-200 transition-all">+ Ajukan Peminjaman</button>
         </div>
 
         {createdToken && (
@@ -186,7 +186,7 @@ export default function RiwayatPage() {
                     <button
                       onClick={() => { setEditData({ ...r, id: r.id }); setShowEdit(true); }}
                       disabled={r.status === "Approved" || r.status === "Rejected"}
-                      className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors text-sm font-bold disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+                      className="p-2 bg-blue-50 text-blue-600 rounded-lg transition-colors text-sm font-bold disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent"
                     >
                       Edit
                     </button>
@@ -203,7 +203,7 @@ export default function RiwayatPage() {
             </tbody>
           </table>
         </div>
-        <button className="w-fit mt-10" onClick={() => navigate("/")}>Back to Homepage</button>
+        <button className="w-fit mt-10 bg-blue-600 text-white hover:text-white hover:bg-blue-500" onClick={() => navigate("/")}>Back to Homepage</button>
       </div>
 
       {showAdd && (

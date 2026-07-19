@@ -4,8 +4,10 @@ import type {
   RuanganUpdate,
 } from "../types/ruangan";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+
 export const ruanganRead = async (): Promise<RuanganRead[]> => {
-  const response = await fetch("/api/Ruangans", {
+  const response = await fetch(`${API_BASE_URL}/api/Ruangans`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +23,7 @@ export const ruanganRead = async (): Promise<RuanganRead[]> => {
 };
 
 export const ruanganReadId = async (id: number): Promise<RuanganRead> => {
-  const response = await fetch(`/api/Ruangans/${id}`, {
+  const response = await fetch(`${API_BASE_URL}/api/Ruangans/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +42,7 @@ export const ruanganCreate = async (
   data: RuanganCreate,
 ): Promise<RuanganRead> => {
   const token = localStorage.getItem("token");
-  const response = await fetch("/api/Ruangans", {
+  const response = await fetch(`${API_BASE_URL}/api/Ruangans`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -62,7 +64,7 @@ export const ruanganUpdate = async (
   id: number,
 ): Promise<RuanganRead> => {
   const token = localStorage.getItem("token");
-  const response = await fetch(`/api/Ruangans/${id}`, {
+  const response = await fetch(`${API_BASE_URL}/api/Ruangans/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -81,7 +83,7 @@ export const ruanganUpdate = async (
 
 export const ruanganDelete = async (id: number): Promise<void> => {
   const token = localStorage.getItem("token");
-  const response = await fetch(`/api/Ruangans/${id}`, {
+  const response = await fetch(`${API_BASE_URL}/api/Ruangans/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

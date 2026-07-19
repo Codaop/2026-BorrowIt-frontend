@@ -6,9 +6,11 @@ import type {
   UserUpdateRoles,
 } from "../types/user";
 
+ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+
 export const userRead = async (): Promise<UserRead[]> => {
   const token = localStorage.getItem("token");
-  const response = await fetch("/api/Users", {
+  const response = await fetch(`${API_BASE_URL}/api/Users`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -26,7 +28,7 @@ export const userRead = async (): Promise<UserRead[]> => {
 
 export const userReadId = async (id: number): Promise<UserRead> => {
   const token = localStorage.getItem("token");
-  const response = await fetch(`/api/Users/${id}`, {
+  const response = await fetch(`${API_BASE_URL}/api/Users/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -44,7 +46,7 @@ export const userReadId = async (id: number): Promise<UserRead> => {
 
 export const userCreate = async (data: UserCreate): Promise<UserRead> => {
   const token = localStorage.getItem("token");
-  const response = await fetch("/api/Users", {
+  const response = await fetch(`${API_BASE_URL}/api/Users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -66,7 +68,7 @@ export const userUpdate = async (
   id: number,
 ): Promise<void> => {
   const token = localStorage.getItem("token");
-  const response = await fetch(`/api/Users/${id}`, {
+  const response = await fetch(`${API_BASE_URL}/api/Users/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -83,7 +85,7 @@ export const userUpdate = async (
 
 export const userDelete = async (id: number): Promise<void> => {
   const token = localStorage.getItem("token");
-  const response = await fetch(`/api/Users/${id}`, {
+  const response = await fetch(`${API_BASE_URL}/api/Users/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -99,7 +101,7 @@ export const userDelete = async (id: number): Promise<void> => {
 
 export const userChangePassword = async (data: UserChangePassword, id: number): Promise<void> => {
   const token = localStorage.getItem("token");
-  const response = await fetch(`/api/Users/${id}/change-password`, {
+  const response = await fetch(`${API_BASE_URL}/api/Users/${id}/change-password`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -116,7 +118,7 @@ export const userChangePassword = async (data: UserChangePassword, id: number): 
 
 export const userUpdateRoles = async (data: UserUpdateRoles, id: number): Promise<void> => {
   const token = localStorage.getItem("token");
-  const response = await fetch(`/api/Users/${id}/update-roles`, {
+  const response = await fetch(`${API_BASE_URL}/api/Users/${id}/update-roles`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

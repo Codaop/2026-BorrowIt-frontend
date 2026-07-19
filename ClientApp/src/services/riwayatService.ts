@@ -6,8 +6,10 @@ import type {
   RiwayatUpdate,
 } from "../types/riwayat";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+
 export const riwayatRead = async (): Promise<RiwayatRead[]> => {
-  const response = await fetch("/api/RiwayatPinjams", {
+  const response = await fetch(`${API_BASE_URL}/api/RiwayatPinjams`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
@@ -23,7 +25,7 @@ export const riwayatRead = async (): Promise<RiwayatRead[]> => {
 };
 
 export const riwayatReadId = async (id: number): Promise<RiwayatRead> => {
-  const response = await fetch(`/api/RiwayatPinjams/${id}`, {
+  const response = await fetch(`${API_BASE_URL}/api/RiwayatPinjams/${id}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
@@ -41,7 +43,7 @@ export const riwayatReadId = async (id: number): Promise<RiwayatRead> => {
 export const riwayatCreate = async (
   data: RiwayatCreate,
 ): Promise<RiwayatCreateToken> => {
-  const response = await fetch("/api/RiwayatPinjams", {
+  const response = await fetch(`${API_BASE_URL}/api/RiwayatPinjams`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -61,8 +63,8 @@ export const riwayatUpdate = async (
   trackingToken?: string,
 ): Promise<void> => {
   const url = trackingToken
-    ? `/api/RiwayatPinjams/${id}?token=${trackingToken}`
-    : `/api/RiwayatPinjams/${id}`;
+    ? `${API_BASE_URL}/api/RiwayatPinjams/${id}?token=${trackingToken}`
+    : `${API_BASE_URL}/api/RiwayatPinjams/${id}`;
   const response = await fetch(url, {
     method: "PUT",
     headers: {
@@ -84,7 +86,7 @@ export const riwayatStatus = async (
   id: number,
 ): Promise<void> => {
   const token = localStorage.getItem("token");
-  const response = await fetch(`/api/RiwayatPinjams/${id}/status-update`, {
+  const response = await fetch(`${API_BASE_URL}/api/RiwayatPinjams/${id}/status-update`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -105,8 +107,8 @@ export const riwayatDelete = async (
 ): Promise<void> => {
   const token = localStorage.getItem("token");
   const url = trackingToken
-    ? `/api/RiwayatPinjams/${id}?token=${trackingToken}`
-    : `/api/RiwayatPinjams/${id}`;
+    ? `${API_BASE_URL}/api/RiwayatPinjams/${id}?token=${trackingToken}`
+    : `${API_BASE_URL}/api/RiwayatPinjams/${id}`;
   const response = await fetch(url, {
     method: "DELETE",
     headers: {
